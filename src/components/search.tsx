@@ -19,7 +19,7 @@ export default function Search({city, setCity, weather,setWeather}) {
     };
 
     return (
-        <div>
+        <div className=" flex flex-col items-center w-96 my-10">
             <input
                 type="text"
                 placeholder="Search City"

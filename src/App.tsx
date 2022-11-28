@@ -2,15 +2,32 @@ import React, {useEffect, useState} from "react";
 import Search from "./components/search";
 
 function App() {
-    const [city, setCity] = useState("London");
+    const [city, setCity] = useState("");
     const [weather, setWeather] = useState(["",[]]);
-    const [city2, setCity2] = useState("Paris");
+    const [city2, setCity2] = useState("");
     const [weather2, setWeather2] = useState(["",[]]);
+
+    useEffect(() => {
+        //charge since localstorage
+        let tmp = ["London", "Paris"];
+        if (localStorage.getItem("city") !== null) {
+            tmp = JSON.parse(localStorage.getItem("city"));
+            setCity(tmp[0]);
+            setCity2(tmp[1]);
+        }
+    }, []);
+
+    useEffect(() => {
+        //save to localstorage
+        if (city !== "" && city2 !== "") {
+            localStorage.setItem("city", JSON.stringify([city, city2]));
+        }
+    }, [city, city2]);
 
     return (
         <>
             <div className="flex flex-col items-center justify-between min-h-screen">
-                <h1 className="pt-3 text-5xl font-bold text-accent">
+                <h1 className="mt-3 text-5xl font-bold text-accent">
                     weather app
                 </h1>
                 {/* <Search setCity={setCity} /> */}

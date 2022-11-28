@@ -21,18 +21,12 @@ export async function recherche(city: string, setweather: (data: any) => void,da
                     )
                     .then((rest) => {
                         setweather([rest.data.urls.regular,datas]);
+                    })
+                    .catch((err) => {
+                        // console.log(err);
+                        setweather(["https://i.pinimg.com/originals/c9/22/68/c92268d92cf2dbf96e3195683d9e14fb.png",datas]);
                     });
                 });
             
         });
 }
-
-// axios
-//     .get(
-//         `https://api.unsplash.com/photos/random?page=1&query=${city[0]}&client_id=4zYjUQ09s9hZpE6ZfBRjMlF_gEaGGaYJeBmhWR45rNU`,
-//     )
-//     .then((res) => {
-//         let tmp = city;
-//         tmp[3] = res.data.urls.regular;
-//         setCity(tmp);
-//     });
