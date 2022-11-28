@@ -3,7 +3,7 @@ import axios from "axios";
 export async function recherche(city: string, setweather: (data: any) => void,data:any) {
     await axios
         .get(
-            `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=e26e112b95e56f37543b35f9b34a27bd`,
+            `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=e26e112b95e56f37543b35f9b34a27bd`,
         )
         .then((res) => {
             axios
