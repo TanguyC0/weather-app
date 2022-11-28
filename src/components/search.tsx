@@ -1,11 +1,11 @@
 import React, {useRef, useEffect} from "react";
-import { recherche } from "../recherche";
+import { recherche } from "../features/recherche";
 import Fiche from "./fiche";
 
 export default function Search({city, setCity, weather,setWeather}) {
     
     useEffect(() => {
-        recherche(city, setWeather);
+        recherche(city, setWeather, weather);
     }, [city]);
 
     const countryRef = useRef<HTMLInputElement>(null);

@@ -3,9 +3,9 @@ import Search from "./components/search";
 
 function App() {
     const [city, setCity] = useState("London");
-    const [weather, setWeather] = useState([]);
+    const [weather, setWeather] = useState(["",[]]);
     const [city2, setCity2] = useState("Paris");
-    const [weather2, setWeather2] = useState([]);
+    const [weather2, setWeather2] = useState(["",[]]);
 
     return (
         <>
