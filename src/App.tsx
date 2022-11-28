@@ -31,7 +31,7 @@ function App() {
                     weather app
                 </h1>
                 {/* <Search setCity={setCity} /> */}
-                <section className="flex w-full justify-around">
+                <section className="flex flex-col sm:flex-row w-full justify-around items-center">
                     <Search city={city} setCity={setCity} weather={weather} setWeather={setWeather}/>
                     <Search city={city2} setCity={setCity2} weather={weather2} setWeather={setWeather2}/>
                 </section>
