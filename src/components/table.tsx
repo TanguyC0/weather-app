@@ -1,6 +1,7 @@
 import React from "react";
 
-export default function Cart({data}) {
+export default function Table({city}) {
+
     return (
         <div className="overflow-x-auto w-full">
             <table className="table w-full">
@@ -14,9 +15,9 @@ export default function Cart({data}) {
                 </thead>
                 <tbody>
                     {/* <!-- row 1 --> */}
-                    {data.map((item) => (
+                    {city.map((item) => (
                         <tr key={item.dt}>
-                            <td className="text-center">{item.dt_txt}</td>
+                            <td className="text-center">{item.dt_txt.slice(0,10)}</td>
                             <td className="text-center">{item.weather[0].main}</td>
                             <td className="text-center">{item.main.temp} °C</td>
                         </tr>

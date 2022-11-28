@@ -1,6 +1,13 @@
-import React, {useRef} from "react";
+import React, {useRef, useEffect} from "react";
+import { recherche } from "../recherche";
+import Fiche from "./fiche";
 
-export default function Search({setCity}) {
+export default function Search({city, setCity, weather,setWeather}) {
+    
+    useEffect(() => {
+        recherche(city, setWeather);
+    }, [city]);
+
     const countryRef = useRef<HTMLInputElement>(null);
 
     const action = (e) => {
@@ -10,8 +17,9 @@ export default function Search({setCity}) {
             countryRef.current.value = "";
         }
     };
+
     return (
-        <div className="flex justify-center">
+        <div>
             <input
                 type="text"
                 placeholder="Search City"
@@ -19,6 +27,7 @@ export default function Search({setCity}) {
                 onKeyDown={action}
                 ref={countryRef}
             />
+            {city !== undefined ? <Fiche city={city} weather={weather} /> : "undefined"}
         </div>
     );
 }
